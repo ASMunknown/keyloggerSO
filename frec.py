@@ -4,6 +4,7 @@
 # puedes ver la frecuencia de las letas.
 # Psdt: Aún no soporta caracteres extraños :(
 
+# Versión en desuso.
 from string import ascii_lowercase
 from collections import Counter
 
