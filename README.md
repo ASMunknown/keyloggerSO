@@ -4,6 +4,7 @@ Programa que captura todo el contenido ingresado por teclado y lo envía a un se
 
 # Método de uso
 ======
+
 Deberá iniciarse el programa desde el intérprete de Python
 
 ```bash
@@ -18,8 +19,8 @@ $ python api/server.py
 
 # Funcionamiento
 #### Keylogger
-1.- El proceso principal (mainProcess) crea dos hilos y los ejecuta.
-2.- El primer hilo creado es el Keylogger, el cual ejecuta el proceso key_recorder en un bucle infinito. Dicho proceso abre (o crea) un archivo con la fecha y hora actual y registra las pulsaciones que realice el usuario en el teclado. Por cada minuto se creará un archivo diferente.
+1.- El proceso principal (mainProcess) crea dos hilos y los ejecuta. <br>
+2.- El primer hilo creado es el Keylogger, el cual ejecuta el proceso key_recorder en un bucle infinito. Dicho proceso abre (o crea) un archivo con la fecha y hora actual y registra las pulsaciones que realice el usuario en el teclado. Por cada minuto se creará un archivo diferente.<br>
 3.- El segundo hilo será para hacer el upload a un servidor web, para ello usamos un petición del tipo GET para enviar la información.
 
 
@@ -33,4 +34,4 @@ $ python api/server.py
 
 
 # Disclaimer
-Software elaborado unicamente con fines educativos.
+Software elaborado únicamente con fines educativos.
