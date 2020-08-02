@@ -15,7 +15,7 @@ import re  # Para utilizar expresiones regulares
 
 
 d=datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-i = 0
+
 
 
 def key_recorder(key):
