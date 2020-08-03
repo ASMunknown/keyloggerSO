@@ -33,7 +33,6 @@ def catch_all(path):
                 specialKeyFound = False
                 tempSpecialKey = ''
                 for i in range (0,len(text)):
-                        # print(text[i])
 
                         if text[i] == '[':
                                 specialKeyFound = True
@@ -48,7 +47,7 @@ def catch_all(path):
                                         tempSpecialKey = tempSpecialKey + text[i]
                         else:
                                 count(text[i],usage)
-                print(usage)
+
 
         # Generando el reporte en JSON para visualizarlo en la página.
         with open('app/db.js','w') as f:

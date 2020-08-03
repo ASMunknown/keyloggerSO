@@ -11,12 +11,10 @@ sectionInfo = document.getElementById("sysInfo").innerHTML = sysInfo
 
 let teclas = []
 
-function mostrarPropiedades(objeto, nombreObjeto) {
-  var resultado = ``;
+function mostrarPropiedades(objeto) {
   for (var i in objeto) {
     //objeto.hasOwnProperty se usa para filtrar las propiedades del objeto
     if (objeto.hasOwnProperty(i)) {
-        //resultado = `${i}`;
         teclas.push(i)
     }
   }
@@ -33,13 +31,10 @@ function getData(objeto){
 }
 
 // Ejecución de mostrarPropiedades
-console.log(mostrarPropiedades(db,"miDB"))
-console.log('El array de teclas es : ')
-console.log(teclas)
+mostrarPropiedades(db)
 
 // Ejecución de getData
-console.log(getData(data))
-console.log(data)
+getData(data)
 
 var ctx = document.getElementById("myLineChart").getContext('2d');
 var myLineChart = new Chart(ctx, {
