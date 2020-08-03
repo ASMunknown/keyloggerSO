@@ -1,6 +1,6 @@
 usage = {}
 
-def count(key):
+def count(key,usage):
 
     try:
         usage[key] = usage[key] + 1
