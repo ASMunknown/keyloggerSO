@@ -13,16 +13,37 @@
 <body>
 
     <div class="container">
-        <h1>DATOS CAPTURADOS</h1>
-        <div style="display: block;width: 500px;height: 250px;">
-            <canvas id="myLineChart" width="400" height="400" ></canvas>
+        <div class="row">
+            <div class="col s12">
+                <h1>DATOS CAPTURADOS</h1>
+                <div style="width: 300px;">
+                    <canvas style="width: 200px;" id="myLineChart" width="400" height="400" ></canvas>
+                </div>
+            </div>
+            <br>
+            <div class="col s12">
+                <h5>
+                    Datos del sistema objetivo
+                </h5>
+                
+                <p id="sysInfo">
+        
+                </p>
+            </div>
+            <footer>
+                <p style="color: darkgray;font-style: italic;">* Para refrescar datos deberá actualizar la página borrando caché. Use Ctrl + Shift + R.</p>
+            </footer>
         </div>
-
+        
+        
+        
+        
     </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>    
     <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <script type="text/javascript" src="sysInfo.js"></script>
     <script type="text/javascript" src="db.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>

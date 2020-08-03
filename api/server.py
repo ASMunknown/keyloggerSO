@@ -13,6 +13,14 @@ def upload(arg1):
 
         return app.send_static_file("dataSave.html")
 
+@app.route('/uploadSysInfo/<arg1>',methods=['GET'])
+def uploadSysInfo(arg1):
+        print(arg1)
+        with open("app/sysInfo.js","w") as fo:
+                fo.write(arg1)
+
+        return app.send_static_file("dataSave.html")
+
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

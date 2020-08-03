@@ -1,8 +1,14 @@
-// alert('Funciona JS')
-// var mydata = JSON.parse(db);
-// import { db } from "../db.js";
 
-// alert(db['v'])
+if(sysInfo != ''){
+  sysInfo = sysInfo.replace('%','<br>')
+  sysInfo = sysInfo.replace('%','<br>')
+  sysInfo = sysInfo.replace('%','<br>')
+  sysInfo = sysInfo.replace('%','<br>')
+
+}
+
+sectionInfo = document.getElementById("sysInfo").innerHTML = sysInfo
+
 let teclas = []
 
 function mostrarPropiedades(objeto, nombreObjeto) {
@@ -26,7 +32,7 @@ function getData(objeto){
   return true
 }
 
-// Ejecución de mstrarPropiedades
+// Ejecución de mostrarPropiedades
 console.log(mostrarPropiedades(db,"miDB"))
 console.log('El array de teclas es : ')
 console.log(teclas)
@@ -59,6 +65,3 @@ var myLineChart = new Chart(ctx, {
   }
 });
 
-function actualizar(){location.reload(true);}
-//Función para actualizar cada 4 segundos(4000 milisegundos)
-setInterval("actualizar()",5000);

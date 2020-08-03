@@ -1,0 +1,1 @@
+var sysInfo = `Nombre de la PC: DESKTOP-ESFSU32%Nombre del usuario: Unknown%IP: 192.168.217.2%Arquitectura de Python y Sistema Operativo: ('32bit', 'WindowsPE')%Modelo de procesador: Intel64 Family 6 Model 78 Stepping 3, GenuineIntel`
