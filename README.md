@@ -3,7 +3,7 @@
 Programa que captura todo el contenido ingresado por teclado y lo envía a un servidor web para su alojamiento.
 
 # Método de uso
-======
+
 
 Deberá iniciarse el programa desde el intérprete de Python
 
