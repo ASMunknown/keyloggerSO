@@ -13,7 +13,7 @@ import os
 import socket
 # Lib para conocer el Sistema Operativo.
 import platform
-# 
+# Lib para conocer el modelo del procesador.
 import getpass
 # Lib para consultas HTML
 import requests
